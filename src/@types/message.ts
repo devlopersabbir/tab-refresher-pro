@@ -11,4 +11,15 @@ export type UIStateMessageType =
         tabId: number;
         error: string;
       };
+    }
+  | {
+      type: "INIT_UI";
+      payload: {};
+    }
+  | {
+      type: "TIMER_APPLY";
+      payload: {
+        tabId: number;
+        intervalTime: number;
+      };
     };

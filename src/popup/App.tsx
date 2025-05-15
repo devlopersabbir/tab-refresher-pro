@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
 import Browser from "webextension-polyfill";
-import { sendRequestToExtension } from "../plugin/tabPlugin";
+import {
+  sendRequestToActiveTab,
+  sendRequestToExtension,
+} from "../plugin/tabPlugin";
+import { UIStateMessageType } from "../@types";
 
 const App = () => {
   const [interval, setInterval] = useState<number>(0);
@@ -9,12 +13,25 @@ const App = () => {
 
   const handleApply = async () => {
     setIsLoading(true);
-    console.log("fuck");
+    const [tabs] = await Browser.tabs.query({
+      active: true,
+      currentWindow: true,
+    });
+    if (tabs && tabs.id) {
+      const res = await sendRequestToExtension<UIStateMessageType>({
+        type: "TIMER_APPLY",
+        payload: {
+          tabId: tabs?.id,
+          intervalTime: interval,
+        },
+      });
+      console.log("res: ", res);
+    }
     setIsLoading(false);
   };
 
   useEffect(() => {
-    sendRequestToExtension({
+    sendRequestToExtension<UIStateMessageType>({
       type: "INIT_UI",
       payload: {},
     });

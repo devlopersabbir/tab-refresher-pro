@@ -2,7 +2,7 @@ import { simpleGit } from "simple-git";
 import fs from "fs";
 
 // Get input from command line arguments
-const filePath = process.argv[2]; // 1st argument
+const filePath = `./${process.argv[2]}`; // 1st argument
 const commitMessage = process.argv[3]; // 2nd argument
 const date = process.argv[4]; // 3rd argument
 

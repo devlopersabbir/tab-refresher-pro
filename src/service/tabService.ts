@@ -1,4 +1,5 @@
 import { TTab } from "../@types/tab";
+import { random } from "../libs/utils";
 import { StorageService } from "./storageService";
 
 export class TabService extends StorageService<TTab[]> {
@@ -10,6 +11,6 @@ export class TabService extends StorageService<TTab[]> {
   }
 
   getTabId = (): string => this._tabId;
-
-  //   getInformation = async () => (await this.value()) ?? [];
+  getInformation = async () => (await this.value()) ?? [];
+  generateRandomTime = (max: number, min: number) => random(min, max);
 }

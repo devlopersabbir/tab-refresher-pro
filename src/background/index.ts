@@ -10,26 +10,13 @@ addResolver("ON_PAGE_LOAD", (payload, sender) => {
   console.log("payload", payload);
   console.log("sender", sender);
 });
-class TabRefresher {
-  public start = (tabId: number, time: number) => {};
 
-  private refreshTab = (tabId: number, bypassCache: boolean = true) => {
-    Browser.tabs.reload(tabId, {
-      bypassCache,
-    });
-  };
-  private intervalMethod = (time: number, tabId: number) => {};
-  public stop = (tabId: number) => {};
-}
+addResolver("INIT_UI", (payload, sender) => {
+  console.log("payload init", payload);
+  console.log("sender", sender);
+});
 
-const tabRefresher = new TabRefresher();
-
-Browser.runtime.onMessage.addListener((message) => {
-  const { action, tabId, time } = message;
-
-  if (action === "start") {
-    tabRefresher.start(tabId, time);
-  } else if (action === "stop") {
-    tabRefresher.stop(tabId);
-  }
+addResolver("TIMER_APPLY", (payload, sender) => {
+  console.log("payload init", payload);
+  console.log("sender", sender);
 });
