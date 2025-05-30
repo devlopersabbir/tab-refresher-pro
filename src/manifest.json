@@ -1,0 +1,43 @@
+{
+  "name": "Tab Refresher Pro",
+  "{{chrome}}.manifest_version": 3,
+  "{{firefox}}.manifest_version": 2,
+  "icons": {
+    "16": "icon/16.png",
+    "32": "icon/32.png",
+    "48": "icon/48.png",
+    "96": "icon/96.png",
+    "128": "icon/128.png"
+  },
+  "{{chrome}}.options_page": "src/settings.html",
+  "{{firefox}}.options_ui": {
+    "page": "src/settings.html"
+  },
+  "background": {
+    "{{chrome}}.service_worker": "src/service-worker/background.ts",
+    "{{firefox}}.scripts": ["src/service-worker/background.ts"]
+  },
+  "content_scripts": [
+    {
+      "run_at": "document_end",
+      "js": ["src/scripts/content.ts"],
+      "css": ["src/styles/index.css"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "notifications",
+    "storage",
+    "alarms",
+    "contextMenus"
+  ],
+  "{{chrome}}.host_permissions": ["*://*/*"],
+  "web_accessible_resources": [
+    {
+      "resources": ["icon.png"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
