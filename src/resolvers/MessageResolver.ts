@@ -28,8 +28,8 @@ export function CreateMessageResolver<T extends RequestType>() {
     type: M,
     resolver: (
       payload: Extract<T, { type: M }>["payload"],
-      sender: any,
-    ) => unknown,
+      sender: any
+    ) => unknown
   ) => {
     resolvers[type] = resolver;
   };

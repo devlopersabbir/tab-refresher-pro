@@ -9,7 +9,7 @@ export class StorageService<Value> {
 
   constructor(key: string, defaultValue?: Value) {
     this.__key = key;
-    this.__defaultValue && (this.__defaultValue = defaultValue);
+    this.__defaultValue = defaultValue;
     this.__initChangeListener();
   }
 
