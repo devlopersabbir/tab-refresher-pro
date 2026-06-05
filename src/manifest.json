@@ -13,6 +13,10 @@
   "{{firefox}}.options_ui": {
     "page": "src/settings.html"
   },
+  "action": {
+    "default_title": "Tab Refresher Pro",
+    "default_popup": "src/popup.html"
+  },
   "background": {
     "{{chrome}}.service_worker": "src/service-worker/background.ts",
     "{{firefox}}.scripts": ["src/service-worker/background.ts"]
@@ -28,10 +32,7 @@
   "permissions": [
     "tabs",
     "activeTab",
-    "notifications",
-    "storage",
-    "alarms",
-    "contextMenus"
+    "storage"
   ],
   "{{chrome}}.host_permissions": ["*://*/*"],
   "web_accessible_resources": [
