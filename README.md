@@ -1,5 +1,17 @@
 ## Tab Refresher Browser Extension
 
+Tab Refresher Pro is a browser extension for configuring reliable per-tab auto-refresh jobs with presets, countdown badges, page overlays, and saved refresh profiles.
+
+## Screenshots
+
+### Popup UI
+
+![Tab Refresher Pro popup UI](docs/images/popup-ui.png)
+
+### Settings Page
+
+![Tab Refresher Pro settings page](docs/images/settings-page.png)
+
 ## Features:
 
 1. **Click to toggle:** Click the extension icon to start/stop auto-refresh for the current tab
